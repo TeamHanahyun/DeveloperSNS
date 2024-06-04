@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  devsns:
+    image: mysql
+    container_name: devsns
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./devsns-db/mysql/data:/val/lib/mysql
+      - ./devsns-db/mysql/etc:/etc/mysql/conf.d
+    restart: always
+    networks:
+      - devsns
+
+networks:
+  devsns:
+    driver: bridge
