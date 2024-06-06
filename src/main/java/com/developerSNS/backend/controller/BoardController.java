@@ -7,6 +7,7 @@ import com.developerSNS.backend.dto.response.BoardListResponse;
 import com.developerSNS.backend.result.ResultResponse;
 import com.developerSNS.backend.service.BoardService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.List;
 
 import static com.developerSNS.backend.result.ResultCode.*;
 
+@Tag(name = "Board", description = "게시물 관련 api입니다.")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/boards")
