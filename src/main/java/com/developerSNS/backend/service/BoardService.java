@@ -8,16 +8,19 @@ import com.developerSNS.backend.dto.response.BoardDetailResponse;
 import com.developerSNS.backend.dto.response.BoardListResponse;
 import com.developerSNS.backend.dto.response.CommentResponse;
 import com.developerSNS.backend.error.exception.board.BoardNotFoundException;
+import com.developerSNS.backend.error.exception.user.UserNotFoundException;
 import com.developerSNS.backend.repository.BoardRepository;
 import com.developerSNS.backend.repository.CommentRepository;
 import com.developerSNS.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -28,7 +31,8 @@ public class BoardService {
 
     // 게시물 작성
     public void createBoard(BoardCreateRequest request) {
-        User user = userRepository.findById(request.getUserId()).orElseThrow();
+        User user = userRepository.findById(request.getUserId()).orElseThrow(UserNotFoundException::new);
+        log.warn("user: ", user);
         Board board = Board.builder()
                 .user(user)
                 .title(request.getTitle())

@@ -14,10 +14,11 @@ import java.util.Date;
 @RequiredArgsConstructor
 @Getter
 @Entity
+@Table(name = "board")
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "boardId")
+    @Column(name = "boardId", columnDefinition = "INT")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)

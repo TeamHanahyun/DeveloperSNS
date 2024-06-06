@@ -11,10 +11,11 @@ import java.util.Date;
 @RequiredArgsConstructor
 @Getter
 @Entity
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "userId")
+    @Column(name = "userId", columnDefinition = "INT")
     private Long id;
 
     @Column(nullable = false)
