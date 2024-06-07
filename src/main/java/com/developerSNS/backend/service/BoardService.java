@@ -17,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,12 +33,7 @@ public class BoardService {
     // 게시물 작성
     public void createBoard(BoardCreateRequest request) {
         User user = userRepository.findById(request.getUserId()).orElseThrow(UserNotFoundException::new);
-        log.warn("user: ", user);
-        Board board = Board.builder()
-                .user(user)
-                .title(request.getTitle())
-                .content(request.getContent())
-                .build();
+        Board board = Board.of(user, request);
         boardRepository.save(board);
     }
 

@@ -54,7 +54,7 @@ public class BoardController {
         return ResponseEntity.ok(ResultResponse.of(BOARD_UPDATE_SUCCESS));
     }
 
-    @Operation(summary = "게시물 상세 조회", description = "특정한 게시물을 삭제합니다.")
+    @Operation(summary = "게시물 삭제", description = "특정한 게시물을 삭제합니다.")
     @DeleteMapping("/{boardId}")
     public ResponseEntity<ResultResponse> deleteBoard(@PathVariable Long boardId) {
         boardService.deleteBoard(boardId);

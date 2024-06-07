@@ -13,7 +13,7 @@ public class BoardListResponse {
     private Long id;
     private String title;
     private String content;
-    private User user;
+    private Long userId;
     private Date createdAt;
 
     public static BoardListResponse of(Board board) {
@@ -21,7 +21,7 @@ public class BoardListResponse {
                 .id(board.getId())
                 .title(board.getTitle())
                 .content(board.getContent())
-                .user(board.getUser())
+                .userId(board.getUser().getId())
                 .createdAt(board.getCreatedAt())
                 .build();
     }

@@ -18,16 +18,16 @@ public class Comment {
     @Column(name = "commentId", columnDefinition = "INT")
     private Long id;
 
-    @Column(nullable = false)
-    private String content;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "boardId")
+    private Board board;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "boardId")
-    private Board board;
+    @Column(nullable = false)
+    private String content;
 
     @Column(name = "createdAt", nullable = false)
     private Date createdAt;

@@ -15,7 +15,7 @@ public class BoardDetailResponse {
     private Long id;
     private String title;
     private String content;
-    private User user;
+    private Long userId;
     private Date createdAt;
     private Date updatedAt;
     private List<CommentResponse> commentResponse;
@@ -25,7 +25,7 @@ public class BoardDetailResponse {
                 .id(board.getId())
                 .title(board.getTitle())
                 .content(board.getContent())
-                .user(board.getUser())
+                .userId(board.getUser().getId())
                 .createdAt(board.getCreatedAt())
                 .updatedAt(board.getUpdatedAt())
                 .commentResponse(commentResponse)

@@ -27,12 +27,12 @@ public class User {
     @Column(nullable = false)
     private String nickname;
 
-    @Column(name = "createdAt", nullable = false)
+    @Column(nullable = false)
     private Date createdAt;
 
-    @Column(name = "updatedAt")
+    @Column
     private Date updatedAt;
 
-    @Column(name = "isDeleted", nullable = false)
+    @Column(nullable = false)
     private Boolean isDeleted = false;
 }
