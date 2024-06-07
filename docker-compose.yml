@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  devsns:
-    image: mysql
+  mysql:
+    image: mysql:latest
     container_name: devsns
     ports:
       - "3307:3306"
