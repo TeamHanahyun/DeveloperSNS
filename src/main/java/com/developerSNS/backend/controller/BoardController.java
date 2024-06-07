@@ -61,8 +61,8 @@ public class BoardController {
         return ResponseEntity.ok(ResultResponse.of(BOARD_DELETE_SUCCESS));
     }
 
-    @Operation(summary = "게시물 상세 조회", description = "특정한 사용자의 게시물을 조회합니다.")
-    @GetMapping("/user/{userId}")
+    @Operation(summary = "사용자 게시물 조회", description = "특정한 사용자의 게시물을 조회합니다.")
+    @GetMapping("/users/{userId}")
     public ResponseEntity<ResultResponse> getBoardListById(@PathVariable Long userId) {
         List<BoardListResponse> boardListResponses = boardService.getBoardListById(userId);
         return ResponseEntity.ok(ResultResponse.of(BOARD_LIST_GET_SUCCESS, boardListResponses));
