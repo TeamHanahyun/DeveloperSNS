@@ -14,7 +14,7 @@ import java.util.Date;
 @Table(name = "comment")
 public class Comment {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "commentId", columnDefinition = "INT")
     private Long id;
 

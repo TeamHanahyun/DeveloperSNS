@@ -14,6 +14,8 @@ public enum ErrorCode {
 
     // USER
     USER_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "U001","존재하지 않는 유저 아이디"),
+    INCORRECT_PASSWORD(HttpStatus.BAD_REQUEST.value(), "U002", "잘못된 비밀번호"),
+    EXISTS_EMAIL(HttpStatus.CONFLICT.value(), "U003","유저 이메일 중복"),
 
     // BOARD
     BOARD_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "B001","존재하지 않는 게시물"),
