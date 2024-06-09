@@ -19,6 +19,11 @@ public enum ResultCode {
     USER_DETAIL_GET_SUCCESS("U003","사용자 상세 조회 성공"),
     USER_UPDATE_SUCCESS("U004","사용자 수정 성공"),
     USER_DELETE_SUCCESS("U005","사용자 삭제 성공"),
+
+    // COMMENT
+    COMMENT_CREATE_SUCCESS("C001","댓글 생성 성공"),
+    COMMENT_UPDATE_SUCCESS("C002","댓글 수정 성공"),
+    COMMENT_DELETE_SUCCESS("C003","댓글 삭제 성공"),
     ;
 
     private final String code;

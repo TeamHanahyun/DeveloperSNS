@@ -21,6 +21,8 @@ public enum ErrorCode {
     BOARD_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "B001","존재하지 않는 게시물"),
     BOARD_USER_UNAUTHORIZED(HttpStatus.UNAUTHORIZED.value(), "P003","승인되지 않은 접근"),
 
+    // COMMENT
+    COMMENT_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "C001","존재하지 않는 댓글"),
     ;
 
     private final int httpStatus;

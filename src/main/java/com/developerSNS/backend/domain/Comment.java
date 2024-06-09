@@ -2,6 +2,7 @@ package com.developerSNS.backend.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -37,4 +38,22 @@ public class Comment {
 
     @Column(name = "isDeleted", nullable = false)
     private Boolean isDeleted = false;
+
+    @Builder
+    public Comment(Board board, User user, String content) {
+        this.board = board;
+        this.user = user;
+        this.content = content;
+        this.createdAt = new Date();
+    }
+
+    public Comment update(String content) {
+        this.content = content;
+        this.updatedAt = new Date();
+        return this;
+    }
+
+    public void softDelete() {
+        this.isDeleted = true;
+    }
 }
