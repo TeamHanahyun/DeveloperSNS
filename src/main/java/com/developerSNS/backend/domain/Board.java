@@ -3,16 +3,11 @@ package com.developerSNS.backend.domain;
 import com.developerSNS.backend.dto.request.BoardCreateRequest;
 import com.developerSNS.backend.dto.request.BoardUpdateRequest;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
 
-@Builder
-@AllArgsConstructor
-@RequiredArgsConstructor
 @Getter
 @Entity
 @Table(name = "board")
@@ -44,7 +39,22 @@ public class Board {
     @Column(nullable = false)
     private Boolean isDeleted = false;
 
-    public static Board of (User user, BoardCreateRequest request) {
+    public Board() {
+    }
+
+    @Builder
+    public Board(Long id, User user, String title, String content, String category, Date createdAt, Date updatedAt, Boolean isDeleted) {
+        this.id = id;
+        this.user = user;
+        this.title = title;
+        this.content = content;
+        this.category = category;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.isDeleted = isDeleted;
+    }
+
+    public static Board of(User user, BoardCreateRequest request) {
         return Board.builder()
                 .user(user)
                 .title(request.getTitle())
