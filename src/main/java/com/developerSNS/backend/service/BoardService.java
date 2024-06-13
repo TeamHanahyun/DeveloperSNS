@@ -50,7 +50,7 @@ public class BoardService {
         Board board = boardRepository.findById(boardId).orElseThrow(BoardNotFoundException::new);
         List<CommentResponse> commentResponses = commentRepository.findAllByBoardId(boardId).stream()
                 .map(CommentResponse::of)
-                .collect(Collectors.toList());
+                .toList();
         return BoardDetailResponse.of(board, commentResponses);
     }
 
